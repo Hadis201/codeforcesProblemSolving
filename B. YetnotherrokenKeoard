@@ -1,0 +1,48 @@
+https://codeforces.com/contest/1907/problem/B
+
+#include <iostream>
+using namespace std;
+
+void solve(){
+  string s;
+  cin >> s;
+  int len = s.size();
+  
+  int lbg = -1, lsm = -1;
+  
+  int bg[len + 5], sm[len + 5];
+  
+  
+  for (int i = 0; i < len; i++){
+    if(s[i] == 'B' || s[i] == 'b'){
+      if (s[i] == 'B' && lbg != -1) lbg--;
+      if (s[i] == 'b' && lsm != -1) lsm--;
+      continue;
+    } 
+    else {
+      if(s[i] >= 'a' && s[i] <= 'z')sm[++lsm] = i;
+      else bg[++lbg] = i;
+    }
+    
+  }
+  
+  int ibg = 0, ism = 0;
+  
+  while(ibg <= lbg || ism <= lsm ){
+    if(ism <= lsm && ibg <= lbg) printf("%c", ( bg[ibg] > sm[ism]) ? s[sm[ism++]] : s[bg[ibg++]]);
+    else printf("%c", (ism <= lsm)?s[sm[ism++]] : s[bg[ibg++]]);
+  }
+  cout<<endl;
+  
+  
+  
+}
+
+
+int main() 
+{
+    int tc = 1;
+    cin >> tc;
+    while(tc--)solve();
+    return 0;
+}
