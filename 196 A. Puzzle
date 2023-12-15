@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int a[m+1];
+    
+    for(int i = 1; i <= m; i++)cin >> a[i];
+    
+    for(int j = 1; j <= m - 1; j++){
+        for(int i = j + 1 ; i <= m ; i++){
+            if(a[i] < a[j]){
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+    
+    int k = 0, diff[1000], min = 1000;
+    for(int i = 1, j = n + i - 1; j <= m ; i++, j++){
+        diff[k++] = a[ j ] - a[i];
+         if(min > diff[k - 1])min = diff[k - 1];
+    }
+
+    cout << min << endl;
+
+}
