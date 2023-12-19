@@ -1,0 +1,38 @@
+https://codeforces.com/contest/469/problem/A
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int n;
+    cin >> n;
+    
+    int gamelevels[n+1] = {0};
+    
+    int a, b;
+    cin >> a;
+    int aar[a+1];
+    for(int i = 1; i <= a; i++){
+      cin >> aar[i];
+      gamelevels[aar[i]]++;
+    }
+    
+    cin >> b;
+    int bar[b+1];
+    for(int i = 1; i <= b; i++){
+      cin >> bar[i];
+      gamelevels[bar[i]]++;
+    }
+    
+    for(int i = 1; i <= n; i++){
+      if(gamelevels[i] == 0){
+        cout << "Oh, my keyboard!\n";
+        return 0;
+      }
+        
+    }
+    cout << "I become the guy.\n";
+    
+    return 0;
+}
