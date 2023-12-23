@@ -1,0 +1,30 @@
+using max(arg1, arg2) makes code faster..
+#include <iostream>
+using namespace std;
+
+void solve() {
+    int n, k;
+    cin >> n >> k;
+
+    int a[n + 1], b[n + 1];
+    for (int i = 1; i <= n; i++) cin >> a[i];
+    for (int i = 1; i <= n; i++) cin >> b[i];
+
+    long long maxSum = 0;
+    long long currentSum = 0;
+    int currentMax = b[1];
+    for (int i = 1; i <= min(k, n); i++) {
+        currentSum += a[i];
+        maxSum = max(maxSum, currentSum + 1LL * (k - i) * currentMax);
+        currentMax = max(currentMax, b[i+1]);
+    }
+
+    cout << maxSum << endl;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) solve();
+    return 0;
+}
