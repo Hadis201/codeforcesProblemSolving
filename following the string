@@ -1,0 +1,94 @@
+https://codeforces.com/contest/1927/problem/B
+
+/*If we keep holding onto yesterday, what are we going to be tomorrow?*/
+//this is unsolved.... cannot solve with O(n).
+#include<bits/stdc++.h>
+#include<limits.h>
+using namespace std;
+/*
+string alphabet = "";
+    char ch = 'a';
+    //for(int i = 0;  i < 26; i++)alphabet += ch++;
+
+    int cnt [26] = {0};
+
+    int val = 0;
+    for(i = 0; i < n; i++){
+        val = ar[i];
+        for(int j = 0 ; j <= 25; j++){
+            if(val == cnt[j]){
+                alphabet += j+'a';
+                cnt[j]++;
+                break;
+            }
+        }
+    }
+    cout << alphabet << endl;
+*/
+
+
+#define int long long int
+
+void solve(){
+    int n = 0, x = 0 , i = 0 , j = 0 , k = 0 , l = 0, m = 0, o , p; cin >> n;
+    vector <int> ar;
+    for(int i = 1; i <= n; i++){
+        cin >> x;
+        ar.push_back(x);
+    }
+    string alphabet = "";
+    char ch = 'a';
+    for(int i = 0;  i < 26; i++)alphabet += ch++;
+    for(int i = 0;  i< n; i++){
+        if (ar[i] == 0)printf("%c", alphabet[j++]);
+        else{
+            printf("%c", alphabet[++k - ar[i]] + l++);
+            l--;
+        }
+        //if(k )
+    }
+    /*
+string alphabet = "";
+    char ch = 'a';
+    //for(int i = 0;  i < 26; i++)alphabet += ch++;
+
+    int cnt [26] = {0};
+
+    int val = 0;
+    for(i = 0; i < n; i++){
+        val = ar[i];
+        for(int j = 0 ; j <= 25; j++){
+            if(val == cnt[j]){
+                alphabet += j+'a';
+                cnt[j]++;
+                break;
+            }
+        }
+    }
+    cout << alphabet << endl;
+*/
+
+
+
+
+
+
+
+
+    cout << endl;
+
+}
+
+int32_t main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
+	int t = 1;
+	cin >> t;
+
+	while(t--)solve();
+
+	return 0;
+
+}
